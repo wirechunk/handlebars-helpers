@@ -165,9 +165,21 @@ describe('object', function() {
   });
 
   describe('JSONparse', function() {
-    it('should parse a JSON string:', function() {
+    it('should parse a JSON string', function() {
       const fn = hbs.compile('{{lookup (JSONparse string) "name"}}');
       assert.equal(fn({string: '{"name": "Fry"}'}), 'Fry');
+    });
+  });
+
+  describe('JSONstringify', function() {
+    it('should stringify an object to JSON', function() {
+      const fn = hbs.compile('{{JSONstringify obj}}', {noEscape: true});
+      assert.equal(fn({obj: {hello: [1, 2]}}), '{"hello":[1,2]}');
+    });
+
+    it('should stringify a null JSON', function() {
+      const fn = hbs.compile('{{JSONstringify obj}}', {noEscape: true});
+      assert.equal(fn({obj: null}), 'null');
     });
   });
 

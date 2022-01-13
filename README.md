@@ -231,7 +231,7 @@ Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https
 * **[hasOwn](#hasOwn)** ([code](lib/object.js) | [tests](test/object.js))
 * **[isObject](#isobject)** ([code](lib/object.js) | [tests](test/object.js))
 * **[JSONparse](#jsonparse)** ([code](lib/object.js) | [tests](test/object.js))
-* **[JSONstringify](#jsonstringify)** ([code](lib/object.js) | [no tests])
+* **[JSONstringify](#jsonstringify)** ([code](lib/object.js) | [tests](test/object.js))
 * **[merge](#merge)** ([code](lib/object.js) | [tests](test/object.js))
 * **[pick](#pick)** ([code](lib/object.js) | [tests](test/object.js))
 
