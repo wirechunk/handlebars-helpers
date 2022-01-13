@@ -17,7 +17,7 @@ const context = {object: {a: 'b', c: 'd', e: 'f'}};
 describe('object', function() {
   describe('extend', function() {
     it('should extend multiple objects into one:', function() {
-      const fn = hbs.compile('{{{stringify (extend a d g)}}}');
+      const fn = hbs.compile('{{{JSONstringify (extend a d g)}}}');
       const actual = fn({a: {b: 'c'}, d: {e: 'f'}, g: {h: 'i'}});
       assert.equal(actual, expected('extend.txt'));
     });
@@ -79,10 +79,10 @@ describe('object', function() {
 
   describe('getObject', function() {
     it('should get an object from the context', function() {
-      const one = hbs.compile('{{{stringify (getObject "a" this)}}}')({a: 'b'});
+      const one = hbs.compile('{{{JSONstringify (getObject "a" this)}}}')({a: 'b'});
       assert.equal(one, '{"a":"b"}');
 
-      const two = hbs.compile('{{{stringify (getObject "c" this)}}}')({c: 'd'});
+      const two = hbs.compile('{{{JSONstringify (getObject "c" this)}}}')({c: 'd'});
       assert.equal(two, '{"c":"d"}');
     });
   });
@@ -158,7 +158,7 @@ describe('object', function() {
 
   describe('merge', function() {
     it('should deeply merge objects passed on the context:', function() {
-      const fn = hbs.compile('{{{stringify (merge a b c)}}}');
+      const fn = hbs.compile('{{{JSONstringify (merge a b c)}}}');
       const actual = fn({a: {one: 'two'}, b: {one: 'three'}, c: {two: 'four'}});
       assert.equal(actual, '{"one":"three","two":"four"}');
     });
@@ -173,23 +173,23 @@ describe('object', function() {
 
   describe('pick', function() {
     it('should pick a value from the context', function() {
-      const one = hbs.compile('{{{stringify (pick "a" this)}}}')({a: 'b'});
+      const one = hbs.compile('{{{JSONstringify (pick "a" this)}}}')({a: 'b'});
       assert.equal(one, '{"a":"b"}');
 
-      const two = hbs.compile('{{{stringify (pick "c" this)}}}')({c: 'd'});
+      const two = hbs.compile('{{{JSONstringify (pick "c" this)}}}')({c: 'd'});
       assert.equal(two, '{"c":"d"}');
     });
 
     it('should pick a nested value from the context', function() {
-      const fn = hbs.compile('{{{stringify (pick "a.b.c" this)}}}');
+      const fn = hbs.compile('{{{JSONstringify (pick "a.b.c" this)}}}');
       assert.equal(fn({a: {b: {c: {d: 'e'}}}}), '{"c":{"d":"e"}}');
     });
 
     it('should work as a block helper', function() {
-      const fn1 = hbs.compile('{{#pick "a" this}} {{{stringify .}}} {{/pick}}');
+      const fn1 = hbs.compile('{{#pick "a" this}} {{{JSONstringify .}}} {{/pick}}');
       assert.equal(fn1(context.object), ' {"a":"b"} ');
 
-      const fn2 = hbs.compile('{{#pick "c" this}} {{{stringify .}}} {{/pick}}');
+      const fn2 = hbs.compile('{{#pick "c" this}} {{{JSONstringify .}}} {{/pick}}');
       assert.equal(fn2(context.object), ' {"c":"d"} ');
     });
 
@@ -201,7 +201,7 @@ describe('object', function() {
 
   describe('stringify', function() {
     it('should stringify an object:', function() {
-      const fn = hbs.compile('{{{stringify data}}}');
+      const fn = hbs.compile('{{{JSONstringify data}}}');
       const res = fn({data: {name: 'Halle', age: 4, userid: 'Nicole'}});
       assert.equal(res, '{"name":"Halle","age":4,"userid":"Nicole"}');
     });

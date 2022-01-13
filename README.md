@@ -1,7 +1,7 @@
 # handlebars-helpers
 <!-- {% raw %} -->
 
-> More than 160 helpers for Handlebars.
+> 160 helpers for Handlebars
 
 - [Browser usage](#browser-usage)
 - [Usage](#usage)
@@ -36,7 +36,7 @@ import { array, collection, math, number } from 'handlebars-helpers';
 
 ## Categories
 
-Currently **162 helpers** in **18 categories**:
+Currently **160 helpers** in **18 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -229,13 +229,11 @@ Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https
 * **[get](#get)** ([code](lib/object.js) | [tests](test/object.js))
 * **[getObject](#getObject)** ([code](lib/object.js) | [tests](test/object.js))
 * **[hasOwn](#hasOwn)** ([code](lib/object.js) | [tests](test/object.js))
-* **[isObject](#isObject)** ([code](lib/object.js) | [tests](test/object.js))
-* **[JSONparse](#JSONparse)** ([code](lib/object.js) | [tests](test/object.js))
-* **[JSONstringify](#JSONstringify)** ([code](lib/object.js) | [no tests])
+* **[isObject](#isobject)** ([code](lib/object.js) | [tests](test/object.js))
+* **[JSONparse](#jsonparse)** ([code](lib/object.js) | [tests](test/object.js))
+* **[JSONstringify](#jsonstringify)** ([code](lib/object.js) | [no tests])
 * **[merge](#merge)** ([code](lib/object.js) | [tests](test/object.js))
-* **[parseJSON](#parseJSON)** ([code](lib/object.js) | [no tests])
 * **[pick](#pick)** ([code](lib/object.js) | [tests](test/object.js))
-* **[stringify](#stringify)** ([code](lib/object.js) | [tests](test/object.js))
 
 ### Path helpers
 

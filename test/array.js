@@ -414,7 +414,7 @@ describe('array', function() {
     it('should sort based on object key:', function() {
       const ctx = {arr: [{a: 'zzz'}, {a: 'aaa'}]};
       hbs.registerHelper(objectHelpers);
-      const fn = hbs.compile('{{{stringify (sortBy arr "a") 0}}}');
+      const fn = hbs.compile('{{{JSONstringify (sortBy arr "a") 0}}}');
       assert.equal(fn(ctx), '[{"a":"aaa"},{"a":"zzz"}]');
     });
   });
