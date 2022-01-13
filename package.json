@@ -63,7 +63,8 @@
   "files": [
     "index.js",
     "lib",
-    "index.d.ts"
+    "index.d.ts",
+    "helper-markdown"
   ],
   "main": "index.js",
   "engines": {
