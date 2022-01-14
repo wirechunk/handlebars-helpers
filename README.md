@@ -3,7 +3,6 @@
 
 > More than 150 helpers for Handlebars
 
-- [Browser usage](#browser-usage)
 - [Usage](#usage)
 - [Helpers](#helpers)
 - [History](#history)
@@ -11,7 +10,10 @@
 
 You might also be interested in [template-helpers](https://github.com/jonschlinkert/template-helpers).
 
-## Browser usage
+## Browsers are supported
+
+Though this is a fork of [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers), this package
+only has helpers that work both in Node.js and in browsers.
 
 See how to [use handlebars-helpers in the browser](https://github.com/doowb/handlebars-helpers-browserify-example).
 
@@ -32,11 +34,16 @@ import { array, collection, math, number } from 'handlebars-helpers';
 );
 ```
 
+You need to have Handlebars as a dependency yourself: it is declared as a peer dependency here.
+
+Also, if you use syntax highlighting when rendering Markdown to HTML with the `helper-markdown` module, you
+need to have highlight.js as a dependency yourself; it too is a peer dependency here.
+
 ## Helpers
 
 ## Categories
 
-Currently **153 helpers** in **18 categories**:
+Currently **152 helpers** in **17 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -47,7 +54,6 @@ Currently **153 helpers** in **18 categories**:
 * **[i18n](#internationalization)** ([code](lib/i18n.js) | [unit tests](test/i18n.js))
 * **[inflection](#inflection)** ([code](lib/inflection.js) | [unit tests](test/inflection.js))
 * **[markdown](#markdown)** ([code](lib/markdown.js) | [unit tests](test/markdown.js))
-* **[match](#match)** ([code](lib/match.js) | [unit tests](test/match.js))
 * **[math](#math)** ([code](lib/math.js) | [unit tests](test/math.js))
 * **[misc](#misc)** ([code](lib/misc.js) | [unit tests](test/misc.js))
 * **[number](#number)** ([code](lib/number.js) | [unit tests](test/number.js))
@@ -170,12 +176,6 @@ Visit the: [code](lib/inflection.js) | [unit tests](test/inflection.js) | [issue
 Visit the: [code](lib/markdown.js) | [unit tests](test/markdown.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+markdown+helpers)
 
 * **[markdownToHTML](#markdowntohtml)** ([code](lib/markdown.js) | [tests](test/markdown.js))
-
-### Match helpers
-
-Visit the: [code](lib/match.js) | [unit tests](test/match.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+match+helpers)
-
-* **[isMatch](#ismatch)** ([code](lib/match.js) | [tests](test/match.js))
 
 ### Math helpers
 
@@ -1465,42 +1465,6 @@ Block helper that converts a string of inline markdown to HTML.
 <p>some quote</p>
 </blockquote>
 -->
-```
-
-### md
-
-Read a markdown file from the file system and inject its contents after converting it to HTML.
-
-**Params**
-
-* `context` **{Object}**
-* `options` **{Object}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{md "foo/bar.md"}}
-```
-
-## match
-
-### isMatch
-
-Returns true if a filepath contains the given pattern. Options may be passed on the options hash or locals.
-
-**Params**
-
-* `filepath` **{String}**
-* `pattern` **{String}**
-* `options` **{Object}**
-* `returns` **{Boolean}**
-
-**Example**
-
-```handlebars
-{{isMatch "foo.md" "*.md"}}
-<!-- results in: true -->
 ```
 
 ## math
