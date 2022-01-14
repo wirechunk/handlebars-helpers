@@ -64,6 +64,7 @@
     "index.js",
     "lib",
     "index.d.ts",
+    "create-frame",
     "helper-markdown"
   ],
   "main": "index.js",
@@ -75,7 +76,6 @@
     "test": "mocha"
   },
   "dependencies": {
-    "create-frame": "^1.0.0",
     "get-object": "^0.2.0",
     "get-relative-path": "^1.0.2",
     "get-value": "^2.0.6",
