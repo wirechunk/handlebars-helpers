@@ -1,7 +1,7 @@
 # handlebars-helpers
 <!-- {% raw %} -->
 
-> More than 150 helpers for Handlebars
+> Tons of awesome helpers for Handlebars
 
 - [Usage](#usage)
 - [Helpers](#helpers)
@@ -43,7 +43,7 @@ need to have highlight.js as a dependency yourself; it too is a peer dependency 
 
 ## Categories
 
-Currently **152 helpers** in **17 categories**:
+Currently **150 helpers** in **17 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -264,7 +264,6 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 * **[chop](#chop)** ([code](lib/string.js) | [tests](test/string.js))
 * **[dashcase](#dashcase)** ([code](lib/string.js) | [tests](test/string.js))
 * **[dotcase](#dotcase)** ([code](lib/string.js) | [tests](test/string.js))
-* **[downcase](#downcase)** ([code](lib/string.js) | [no tests])
 * **[ellipsis](#ellipsis)** ([code](lib/string.js) | [tests](test/string.js))
 * **[hyphenate](#hyphenate)** ([code](lib/string.js) | [tests](test/string.js))
 * **[isString](#isString)** ([code](lib/string.js) | [tests](test/string.js))
@@ -289,7 +288,6 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 * **[trimRight](#trimright)** ([code](lib/string.js) | [no tests])
 * **[truncate](#truncate)** ([code](lib/string.js) | [tests](test/string.js))
 * **[truncateWords](#truncatewords)** ([code](lib/string.js) | [no tests])
-* **[upcase](#upcase)** ([code](lib/string.js) | [no tests])
 * **[uppercase](#uppercase)** ([code](lib/string.js) | [tests](test/string.js))
 
 ### URL helpers
@@ -2201,22 +2199,6 @@ dot.case the characters in `string`.
 <!-- results in:  'a.b.c.d.e' -->
 ```
 
-### downcase
-
-Lowercase all of the characters in the given string. Alias for [lowercase](#lowercase).
-
-**Params**
-
-* `string` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{downcase "aBcDeF"}}
-<!-- results in:  'abcdef' -->
-```
-
 ### ellipsis
 
 Truncates a string to the specified `length`, and appends it with an elipsis, `…`.
@@ -2628,22 +2610,6 @@ truncateWords("foo bar baz", 2);
 <!-- results in:  'foo bar…' -->
 truncateWords("foo bar baz", 3);
 <!-- results in:  'foo bar baz' -->
-```
-
-### upcase
-
-Uppercase all of the characters in the given string. Alias for [uppercase](#uppercase).
-
-**Params**
-
-* `string` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{upcase "aBcDeF"}}
-<!-- results in:  'ABCDEF' -->
 ```
 
 ### uppercase
