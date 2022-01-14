@@ -1,9 +1,8 @@
 # handlebars-helpers
 <!-- {% raw %} -->
 
-> 160 helpers for Handlebars
+> Tons of awesome helpers for Handlebars
 
-- [Browser usage](#browser-usage)
 - [Usage](#usage)
 - [Helpers](#helpers)
 - [History](#history)
@@ -11,7 +10,10 @@
 
 You might also be interested in [template-helpers](https://github.com/jonschlinkert/template-helpers).
 
-## Browser usage
+## Browsers are supported
+
+Though this is a fork of [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers), this package
+only has helpers that work both in Node.js and in browsers.
 
 See how to [use handlebars-helpers in the browser](https://github.com/doowb/handlebars-helpers-browserify-example).
 
@@ -32,11 +34,16 @@ import { array, collection, math, number } from 'handlebars-helpers';
 );
 ```
 
+You need to have Handlebars as a dependency yourself: it is declared as a peer dependency here.
+
+Also, if you use syntax highlighting when rendering Markdown to HTML with the `helper-markdown` module, you
+need to have highlight.js as a dependency yourself; it too is a peer dependency here.
+
 ## Helpers
 
 ## Categories
 
-Currently **160 helpers** in **18 categories**:
+Currently **150 helpers** in **17 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -47,7 +54,6 @@ Currently **160 helpers** in **18 categories**:
 * **[i18n](#internationalization)** ([code](lib/i18n.js) | [unit tests](test/i18n.js))
 * **[inflection](#inflection)** ([code](lib/inflection.js) | [unit tests](test/inflection.js))
 * **[markdown](#markdown)** ([code](lib/markdown.js) | [unit tests](test/markdown.js))
-* **[match](#match)** ([code](lib/match.js) | [unit tests](test/match.js))
 * **[math](#math)** ([code](lib/math.js) | [unit tests](test/math.js))
 * **[misc](#misc)** ([code](lib/misc.js) | [unit tests](test/misc.js))
 * **[number](#number)** ([code](lib/number.js) | [unit tests](test/number.js))
@@ -171,13 +177,6 @@ Visit the: [code](lib/markdown.js) | [unit tests](test/markdown.js) | [issues](h
 
 * **[markdownToHTML](#markdowntohtml)** ([code](lib/markdown.js) | [tests](test/markdown.js))
 
-### Match helpers
-
-Visit the: [code](lib/match.js) | [unit tests](test/match.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+match+helpers)
-
-* **[match](#match)** ([code](lib/match.js) | [tests](test/match.js))
-* **[isMatch](#ismatch)** ([code](lib/match.js) | [tests](test/match.js))
-
 ### Math helpers
 
 Visit the: [code](lib/math.js) | [unit tests](test/math.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+math+helpers)
@@ -239,13 +238,11 @@ Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https
 
 Visit the: [code](lib/path.js) | [unit tests](test/path.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+path+helpers)
 
-* **[absolute](#absolute)** ([code](lib/path.js) | [tests](test/path.js))
 * **[dirname](#dirname)** ([code](lib/path.js) | [tests](test/path.js))
 * **[relative](#relative)** ([code](lib/path.js) | [tests](test/path.js))
 * **[basename](#basename)** ([code](lib/path.js) | [tests](test/path.js))
 * **[stem](#stem)** ([code](lib/path.js) | [tests](test/path.js))
 * **[extname](#extname)** ([code](lib/path.js) | [tests](test/path.js))
-* **[resolve](#resolve)** ([code](lib/path.js) | [no tests])
 * **[segments](#segments)** ([code](lib/path.js) | [tests](test/path.js))
 
 ### Regex helpers
@@ -267,7 +264,6 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 * **[chop](#chop)** ([code](lib/string.js) | [tests](test/string.js))
 * **[dashcase](#dashcase)** ([code](lib/string.js) | [tests](test/string.js))
 * **[dotcase](#dotcase)** ([code](lib/string.js) | [tests](test/string.js))
-* **[downcase](#downcase)** ([code](lib/string.js) | [no tests])
 * **[ellipsis](#ellipsis)** ([code](lib/string.js) | [tests](test/string.js))
 * **[hyphenate](#hyphenate)** ([code](lib/string.js) | [tests](test/string.js))
 * **[isString](#isString)** ([code](lib/string.js) | [tests](test/string.js))
@@ -288,26 +284,21 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 * **[startsWith](#startsWith)** ([code](lib/string.js) | [tests](test/string.js))
 * **[titleize](#titleize)** ([code](lib/string.js) | [tests](test/string.js))
 * **[trim](#trim)** ([code](lib/string.js) | [tests](test/string.js))
-* **[trimLeft](#trimLeft)** ([code](lib/string.js) | [no tests])
-* **[trimRight](#trimRight)** ([code](lib/string.js) | [no tests])
+* **[trimLeft](#trimleft)** ([code](lib/string.js) | [no tests])
+* **[trimRight](#trimright)** ([code](lib/string.js) | [no tests])
 * **[truncate](#truncate)** ([code](lib/string.js) | [tests](test/string.js))
-* **[truncateWords](#truncateWords)** ([code](lib/string.js) | [no tests])
-* **[upcase](#upcase)** ([code](lib/string.js) | [no tests])
+* **[truncateWords](#truncatewords)** ([code](lib/string.js) | [no tests])
 * **[uppercase](#uppercase)** ([code](lib/string.js) | [tests](test/string.js))
 
 ### URL helpers
 
 Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+url+helpers)
 
-* **[encodeURI](#encodeuri)** ([code](lib/url.js) | [tests](test/url.js))
-* **[escape](#escape)** ([code](lib/url.js) | [no tests])
-* **[decodeURI](#decodeuri)** ([code](lib/url.js) | [tests](test/url.js))
-* **[url_encode](#url_encode)** ([code](lib/url.js) | [no tests])
-* **[url_decode](#url_decode)** ([code](lib/url.js) | [no tests])
+* **[decodeURIComponent](#decodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
+* **[encodeURIComponent](#encodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
 * **[urlResolve](#urlresolve)** ([code](lib/url.js) | [tests](test/url.js))
 * **[urlParse](#urlparse)** ([code](lib/url.js) | [tests](test/url.js))
 * **[stripQuerystring](#stripquerystring)** ([code](lib/url.js) | [tests](test/url.js))
-* **[stripProtocol](#stripprotocol)** ([code](lib/url.js) | [no tests])
 
 ***
 
@@ -1474,61 +1465,6 @@ Block helper that converts a string of inline markdown to HTML.
 -->
 ```
 
-### md
-
-Read a markdown file from the file system and inject its contents after converting it to HTML.
-
-**Params**
-
-* `context` **{Object}**
-* `options` **{Object}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{md "foo/bar.md"}}
-```
-
-## match
-
-### match
-
-Returns an array of strings that match the given glob pattern(s). Options may be passed on the options hash or locals.
-
-**Params**
-
-* `files` **{Array|String}**
-* `patterns` **{Array|String}**: One or more glob patterns.
-* `locals` **{Object}**
-* `options` **{Object}**
-* `returns` **{Array}**: Array of matches
-
-**Example**
-
-```handlebars
-{{match (readdir "foo") "*.js"}}
-{{match (readdir "foo") (toRegex "\\.js$")}}
-```
-
-### isMatch
-
-Returns true if a filepath contains the given pattern. Options may be passed on the options hash or locals.
-
-**Params**
-
-* `filepath` **{String}**
-* `pattern` **{String}**
-* `options` **{Object}**
-* `returns` **{Boolean}**
-
-**Example**
-
-```handlebars
-{{isMatch "foo.md" "*.md"}}
-<!-- results in: true -->
-```
-
 ## math
 
 ### abs
@@ -1991,22 +1927,6 @@ Pick properties from the context object.
 
 ## path
 
-### absolute
-
-Get the directory path segment from the given `filepath`.
-
-**Params**
-
-* `ext` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{absolute "docs/toc.md"}}
-<!-- results in: 'docs' -->
-```
-
 ### dirname
 
 Get the directory path segment from the given `filepath`.
@@ -2085,22 +2005,6 @@ Get the file extension from the given `filepath`.
 ```handlebars
 {{extname "docs/toc.md"}}
 <!-- results in: '.md' -->
-```
-
-### resolve
-
-Resolve an absolute path from the given `filepath`.
-
-**Params**
-
-* `filepath` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{resolve "docs/toc.md"}}
-<!-- results in: '/User/dev/docs/toc.md' -->
 ```
 
 ### segments
@@ -2293,22 +2197,6 @@ dot.case the characters in `string`.
 ```handlebars
 {{dotcase "a-b-c d_e"}}
 <!-- results in:  'a.b.c.d.e' -->
-```
-
-### downcase
-
-Lowercase all of the characters in the given string. Alias for [lowercase](#lowercase).
-
-**Params**
-
-* `string` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{downcase "aBcDeF"}}
-<!-- results in:  'abcdef' -->
 ```
 
 ### ellipsis
@@ -2724,22 +2612,6 @@ truncateWords("foo bar baz", 3);
 <!-- results in:  'foo bar baz' -->
 ```
 
-### upcase
-
-Uppercase all of the characters in the given string. Alias for [uppercase](#uppercase).
-
-**Params**
-
-* `string` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{upcase "aBcDeF"}}
-<!-- results in:  'ABCDEF' -->
-```
-
 ### uppercase
 
 Uppercase all of the characters in the given string. If used as a block helper it will uppercase the entire block. This helper does not support inverse blocks.
@@ -2759,7 +2631,16 @@ Uppercase all of the characters in the given string. If used as a block helper i
 
 ## url
 
-### encodeURI
+### decodeURIComponent
+
+Decode a Uniform Resource Identifier (URI) component.
+
+**Params**
+
+* `str` **{String}**
+* `returns` **{String}**
+
+### encodeURIComponent
 
 Encodes a Uniform Resource Identifier (URI) component
 by replacing each instance of certain characters by
@@ -2769,38 +2650,11 @@ the UTF-8 encoding of the character.
 **Params**
 
 * `str` **{String}**: The un-encoded string
-* `returns` **{String}**: The endcoded string
-
-### escape
-
-Escape the given string by replacing characters with escape sequences.
-Useful for allowing the string to be used in a URL, etc.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**: Escaped string.
-
-### decodeURI
-
-Decode a Uniform Resource Identifier (URI) component.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**
-
-### url_encode
-
-Alias for [encodeURI](#encodeuri).
-
-### url_decode
-
-Alias for [decodeURI](#decodeuri).
+* `returns` **{String}**: The encoded string
 
 ### urlResolve
 
-Take a base URL, and a href URL, and resolve them as a
+Take a base URL and a href URL and resolve them as a
 browser would for an anchor tag.
 
 **Params**
@@ -2808,6 +2662,28 @@ browser would for an anchor tag.
 * `base` **{String}**
 * `href` **{String}**
 * `returns` **{String}**
+
+**Example**
+
+```handlebars
+{{urlResolve "http://example.com" "one"}}
+<!-- results in: 'http://example.com/one' -->
+
+{{urlResolve "http://example.com/" "/one"}}
+<!-- results in: 'http://example.com/one' -->
+
+{{urlResolve "http://example.com/one" "/two"}}
+<!-- results in: 'http://example.com/two' -->
+
+{{urlResolve "http://example.com/one/" "two"}}
+<!-- results in: 'http://example.com/one/two' -->
+
+{{urlResolve "http://example.com/one/" "./two"}}
+<!-- results in: 'http://example.com/one/two' -->
+
+{{urlResolve "http://example.com/one" "./two"}}
+<!-- results in: 'http://example.com/two' -->
+```
 
 ### urlParse
 
@@ -2826,23 +2702,6 @@ Strip the query string from the given `url`.
 
 * `url` **{String}**
 * `returns` **{String}**: the url without the queryString
-
-### stripProtocol
-
-Strip protocol from a `url`. Useful for displaying media that may have an 'http' protocol on secure connections.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**: the url with http protocol stripped
-
-**Example**
-
-```handlebars
-<!-- url = 'http://foo.bar' -->
-{{stripProtocol url}}
-<!-- results in: '//foo.bar' -->
-```
 
 ***
 

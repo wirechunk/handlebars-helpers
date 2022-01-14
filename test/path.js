@@ -1,9 +1,7 @@
 'use strict';
 
 require('mocha');
-const os = require('os');
 const assert = require('assert');
-const path = require('path');
 const hbs = require('handlebars').create();
 const gm = require('global-modules');
 const pathHelpers = require('../lib/path');
@@ -11,18 +9,6 @@ const pathHelpers = require('../lib/path');
 hbs.registerHelper(pathHelpers);
 
 describe('assemble', function() {
-  describe('absolute', function() {
-    it('should create an absolute file path', function() {
-      assert.equal(hbs.compile('{{absolute "a/b/c/package.json"}}')(), path.resolve('a/b/c/package.json'));
-      assert.equal(hbs.compile('{{absolute "a/b/c/docs/toc.md"}}')(), path.resolve('a/b/c/docs/toc.md'));
-    });
-
-    it('should use the cwd on locals', function() {
-      assert.equal(hbs.compile('{{absolute "a/b/c/package.json"}}')({cwd: os.homedir()}), path.resolve(os.homedir(), 'a/b/c/package.json'));
-      assert.equal(hbs.compile('{{absolute "a/b/c/docs/toc.md"}}')({cwd: gm}), path.resolve(gm, 'a/b/c/docs/toc.md'));
-    });
-  });
-
   describe('dirname', function() {
     it('should get the dirname of a file path', function() {
       assert.equal(hbs.compile('{{dirname "a/b/c/package.json"}}')(), 'a/b/c');
@@ -33,15 +19,15 @@ describe('assemble', function() {
   describe('relative', function() {
     it('should return the relative path from file A to file B', function() {
       const fn = hbs.compile('{{relative "dist/docs.html" "index.html"}}');
-      assert.equal(fn(), 'index.html');
+      assert.equal(fn(), '../../index.html');
     });
     it('should return the relative path from file A to file B', function() {
       const fn = hbs.compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(fn(), '../../assets');
+      assert.equal(fn(), '../../../assets');
     });
     it('should use the cwd passed on options', function() {
       const fn = hbs.compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(fn({cwd: gm}), '../../assets');
+      assert.equal(fn({cwd: gm}), '../../../assets');
     });
   });
 
