@@ -83,7 +83,6 @@
     "html-tag": "^2.0.0",
     "is-even": "^1.0.0",
     "kind-of": "^6.0.0",
-    "lazy-cache": "^2.0.2",
     "lodash": "^4.17.21",
     "path-browserify": "^1.0.1",
     "remarkable": "^2.0.1",
