@@ -107,6 +107,10 @@ describe('object', function() {
       assert.equal(hbs.compile('{{get "c" this}}')({c: 'd'}), 'd');
     });
 
+    it('should get a value from an object', function() {
+      assert.equal(hbs.compile('{{get "a" obj}}')({obj: 'hello'}), 'hello');
+    });
+
     it('should get a nested value from the context', function() {
       const fn = hbs.compile('{{get "a.b.c.d" this}}');
       assert.equal(fn({a: {b: {c: {d: 'e'}}}}), 'e');

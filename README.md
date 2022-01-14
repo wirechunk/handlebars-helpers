@@ -1,7 +1,7 @@
 # handlebars-helpers
 <!-- {% raw %} -->
 
-> 160 helpers for Handlebars
+> More than 150 helpers for Handlebars
 
 - [Browser usage](#browser-usage)
 - [Usage](#usage)
@@ -36,7 +36,7 @@ import { array, collection, math, number } from 'handlebars-helpers';
 
 ## Categories
 
-Currently **160 helpers** in **18 categories**:
+Currently **156 helpers** in **18 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -288,10 +288,10 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 * **[startsWith](#startsWith)** ([code](lib/string.js) | [tests](test/string.js))
 * **[titleize](#titleize)** ([code](lib/string.js) | [tests](test/string.js))
 * **[trim](#trim)** ([code](lib/string.js) | [tests](test/string.js))
-* **[trimLeft](#trimLeft)** ([code](lib/string.js) | [no tests])
-* **[trimRight](#trimRight)** ([code](lib/string.js) | [no tests])
+* **[trimLeft](#trimleft)** ([code](lib/string.js) | [no tests])
+* **[trimRight](#trimright)** ([code](lib/string.js) | [no tests])
 * **[truncate](#truncate)** ([code](lib/string.js) | [tests](test/string.js))
-* **[truncateWords](#truncateWords)** ([code](lib/string.js) | [no tests])
+* **[truncateWords](#truncatewords)** ([code](lib/string.js) | [no tests])
 * **[upcase](#upcase)** ([code](lib/string.js) | [no tests])
 * **[uppercase](#uppercase)** ([code](lib/string.js) | [tests](test/string.js))
 
@@ -299,15 +299,11 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 
 Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+url+helpers)
 
-* **[encodeURI](#encodeuri)** ([code](lib/url.js) | [tests](test/url.js))
-* **[escape](#escape)** ([code](lib/url.js) | [no tests])
-* **[decodeURI](#decodeuri)** ([code](lib/url.js) | [tests](test/url.js))
-* **[url_encode](#url_encode)** ([code](lib/url.js) | [no tests])
-* **[url_decode](#url_decode)** ([code](lib/url.js) | [no tests])
+* **[decodeURIComponent](#decodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
+* **[encodeURIComponent](#encodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
 * **[urlResolve](#urlresolve)** ([code](lib/url.js) | [tests](test/url.js))
 * **[urlParse](#urlparse)** ([code](lib/url.js) | [tests](test/url.js))
 * **[stripQuerystring](#stripquerystring)** ([code](lib/url.js) | [tests](test/url.js))
-* **[stripProtocol](#stripprotocol)** ([code](lib/url.js) | [no tests])
 
 ***
 
@@ -2759,7 +2755,16 @@ Uppercase all of the characters in the given string. If used as a block helper i
 
 ## url
 
-### encodeURI
+### decodeURIComponent
+
+Decode a Uniform Resource Identifier (URI) component.
+
+**Params**
+
+* `str` **{String}**
+* `returns` **{String}**
+
+### encodeURIComponent
 
 Encodes a Uniform Resource Identifier (URI) component
 by replacing each instance of certain characters by
@@ -2769,38 +2774,11 @@ the UTF-8 encoding of the character.
 **Params**
 
 * `str` **{String}**: The un-encoded string
-* `returns` **{String}**: The endcoded string
-
-### escape
-
-Escape the given string by replacing characters with escape sequences.
-Useful for allowing the string to be used in a URL, etc.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**: Escaped string.
-
-### decodeURI
-
-Decode a Uniform Resource Identifier (URI) component.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**
-
-### url_encode
-
-Alias for [encodeURI](#encodeuri).
-
-### url_decode
-
-Alias for [decodeURI](#decodeuri).
+* `returns` **{String}**: The encoded string
 
 ### urlResolve
 
-Take a base URL, and a href URL, and resolve them as a
+Take a base URL and a href URL and resolve them as a
 browser would for an anchor tag.
 
 **Params**
@@ -2808,6 +2786,28 @@ browser would for an anchor tag.
 * `base` **{String}**
 * `href` **{String}**
 * `returns` **{String}**
+
+**Example**
+
+```handlebars
+{{urlResolve "http://example.com" "one"}}
+<!-- results in: 'http://example.com/one' -->
+
+{{urlResolve "http://example.com/" "/one"}}
+<!-- results in: 'http://example.com/one' -->
+
+{{urlResolve "http://example.com/one" "/two"}}
+<!-- results in: 'http://example.com/two' -->
+
+{{urlResolve "http://example.com/one/" "two"}}
+<!-- results in: 'http://example.com/one/two' -->
+
+{{urlResolve "http://example.com/one/" "./two"}}
+<!-- results in: 'http://example.com/one/two' -->
+
+{{urlResolve "http://example.com/one" "./two"}}
+<!-- results in: 'http://example.com/two' -->
+```
 
 ### urlParse
 
@@ -2826,23 +2826,6 @@ Strip the query string from the given `url`.
 
 * `url` **{String}**
 * `returns` **{String}**: the url without the queryString
-
-### stripProtocol
-
-Strip protocol from a `url`. Useful for displaying media that may have an 'http' protocol on secure connections.
-
-**Params**
-
-* `str` **{String}**
-* `returns` **{String}**: the url with http protocol stripped
-
-**Example**
-
-```handlebars
-<!-- url = 'http://foo.bar' -->
-{{stripProtocol url}}
-<!-- results in: '//foo.bar' -->
-```
 
 ***
 
