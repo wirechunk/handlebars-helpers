@@ -36,7 +36,7 @@ import { array, collection, math, number } from 'handlebars-helpers';
 
 ## Categories
 
-Currently **156 helpers** in **18 categories**:
+Currently **153 helpers** in **18 categories**:
 
 * **[array](#array)** ([code](lib/array.js) | [unit tests](test/array.js))
 * **[code](#code)** ([code](lib/code.js) | [unit tests](test/code.js))
@@ -175,7 +175,6 @@ Visit the: [code](lib/markdown.js) | [unit tests](test/markdown.js) | [issues](h
 
 Visit the: [code](lib/match.js) | [unit tests](test/match.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+match+helpers)
 
-* **[match](#match)** ([code](lib/match.js) | [tests](test/match.js))
 * **[isMatch](#ismatch)** ([code](lib/match.js) | [tests](test/match.js))
 
 ### Math helpers
@@ -239,13 +238,11 @@ Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https
 
 Visit the: [code](lib/path.js) | [unit tests](test/path.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+path+helpers)
 
-* **[absolute](#absolute)** ([code](lib/path.js) | [tests](test/path.js))
 * **[dirname](#dirname)** ([code](lib/path.js) | [tests](test/path.js))
 * **[relative](#relative)** ([code](lib/path.js) | [tests](test/path.js))
 * **[basename](#basename)** ([code](lib/path.js) | [tests](test/path.js))
 * **[stem](#stem)** ([code](lib/path.js) | [tests](test/path.js))
 * **[extname](#extname)** ([code](lib/path.js) | [tests](test/path.js))
-* **[resolve](#resolve)** ([code](lib/path.js) | [no tests])
 * **[segments](#segments)** ([code](lib/path.js) | [tests](test/path.js))
 
 ### Regex helpers
@@ -1488,25 +1485,6 @@ Read a markdown file from the file system and inject its contents after converti
 
 ## match
 
-### match
-
-Returns an array of strings that match the given glob pattern(s). Options may be passed on the options hash or locals.
-
-**Params**
-
-* `files` **{Array|String}**
-* `patterns` **{Array|String}**: One or more glob patterns.
-* `locals` **{Object}**
-* `options` **{Object}**
-* `returns` **{Array}**: Array of matches
-
-**Example**
-
-```handlebars
-{{match (readdir "foo") "*.js"}}
-{{match (readdir "foo") (toRegex "\\.js$")}}
-```
-
 ### isMatch
 
 Returns true if a filepath contains the given pattern. Options may be passed on the options hash or locals.
@@ -1987,22 +1965,6 @@ Pick properties from the context object.
 
 ## path
 
-### absolute
-
-Get the directory path segment from the given `filepath`.
-
-**Params**
-
-* `ext` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{absolute "docs/toc.md"}}
-<!-- results in: 'docs' -->
-```
-
 ### dirname
 
 Get the directory path segment from the given `filepath`.
@@ -2081,22 +2043,6 @@ Get the file extension from the given `filepath`.
 ```handlebars
 {{extname "docs/toc.md"}}
 <!-- results in: '.md' -->
-```
-
-### resolve
-
-Resolve an absolute path from the given `filepath`.
-
-**Params**
-
-* `filepath` **{String}**
-* `returns` **{String}**
-
-**Example**
-
-```handlebars
-{{resolve "docs/toc.md"}}
-<!-- results in: '/User/dev/docs/toc.md' -->
 ```
 
 ### segments

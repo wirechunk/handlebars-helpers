@@ -1,7 +1,5 @@
 'use strict';
 
-const os = require('os');
-const path = require('path');
 const assert = require('assert');
 const gm = require('global-modules');
 const engine = require('engine-handlebars');
@@ -48,19 +46,6 @@ describe('templates integration tests', function() {
     render = function(content, context) {
       return compile(content).fn(context);
     };
-  });
-
-  describe('absolute', function() {
-    it('should create an absolute file path', function() {
-      assert.equal(render('{{absolute "a/b/c/package.json"}}'), path.resolve('a/b/c/package.json'));
-      assert.equal(render('{{absolute "a/b/c/docs/toc.md"}}'), path.resolve('a/b/c/docs/toc.md'));
-    });
-
-    it('should use the cwd on locals', function() {
-      assert.equal(render('{{absolute "a/b/c/package.json"}}', {cwd: os.homedir()}), path.resolve(os.homedir(), 'a/b/c/package.json'));
-      assert.equal(render('{{absolute "a/b/c/package.json"}}', {cwd: os.homedir()}), path.resolve(os.homedir(), 'a/b/c/package.json'));
-      assert.equal(render('{{absolute "a/b/c/docs/toc.md"}}', {cwd: os.homedir()}), path.resolve(os.homedir(), 'a/b/c/docs/toc.md'));
-    });
   });
 
   describe('dirname', function() {
