@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-const gm = require('global-modules');
 const engine = require('engine-handlebars');
 const templates = require('templates');
 let compile;
@@ -52,21 +51,6 @@ describe('templates integration tests', function() {
     it('should get the dirname of a file path', function() {
       assert.equal(render('{{dirname "a/b/c/package.json"}}'), 'a/b/c');
       assert.equal(render('{{dirname "a/b/c/docs/toc.md"}}'), 'a/b/c/docs');
-    });
-  });
-
-  describe('relative', function() {
-    it('should return the relative path from file A to file B', function() {
-      const view = compile('{{relative "dist/docs.html" "index.html"}}');
-      assert.equal(view.fn(), 'index.html');
-    });
-    it('should return the relative path from file A to file B in', function() {
-      const view = compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(view.fn(), '../../assets');
-    });
-    it('should use the cwd passed on options', function() {
-      const view = compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(view.fn({cwd: gm}), '../../assets');
     });
   });
 

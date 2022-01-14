@@ -77,7 +77,6 @@
   },
   "dependencies": {
     "get-object": "^0.2.0",
-    "get-relative-path": "^1.0.2",
     "get-value": "^2.0.6",
     "handlebars-utils": "^1.0.6",
     "has-value": "^1.0.0",
@@ -87,7 +86,7 @@
     "lazy-cache": "^2.0.2",
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",
-    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
     "remarkable": "^2.0.1",
     "striptags": "^3.1.0"
   },

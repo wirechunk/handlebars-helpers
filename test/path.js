@@ -19,15 +19,15 @@ describe('assemble', function() {
   describe('relative', function() {
     it('should return the relative path from file A to file B', function() {
       const fn = hbs.compile('{{relative "dist/docs.html" "index.html"}}');
-      assert.equal(fn(), 'index.html');
+      assert.equal(fn(), '../../index.html');
     });
     it('should return the relative path from file A to file B', function() {
       const fn = hbs.compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(fn(), '../../assets');
+      assert.equal(fn(), '../../../assets');
     });
     it('should use the cwd passed on options', function() {
       const fn = hbs.compile('{{relative "examples/result/md/path.md" "examples/assets"}}');
-      assert.equal(fn({cwd: gm}), '../../assets');
+      assert.equal(fn({cwd: gm}), '../../../assets');
     });
   });
 
