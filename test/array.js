@@ -93,34 +93,22 @@ describe('array', function() {
   });
 
   describe('filter', function() {
-    it('should render the block if the given string is in the array', function() {
-      const source = '{{#filter array "d"}}AAA{{else}}BBB{{/filter}}';
-      assert.equal(hbs.compile(source)(context), 'AAA');
+    it('should return the array with filtered values', function() {
+      const ctx = {array: ['a', 'b', 'c', 'd', 'e', 'c']};
+      const template = hbs.compile('{{filter array "c"}}');
+      assert.equal(template(ctx), ['c', 'c']);
     });
 
-    it('should render the inverse block if the string is not in the array:', function() {
-      const source = '{{#filter array "foo"}}AAA{{else}}BBB{{/filter}}';
-      assert.equal(hbs.compile(source)(context), 'BBB');
-    });
-
-    it('should render a block for each object that has a "first" property with the value "d"', function() {
-
+    it('should return the array with filtered values using a property name', function() {
       const ctx = {
-        collection: [
-          {first: 'aaa', last: 'bbb'},
-          {first: 'b'},
-          {title: 'ccc', last: 'ddd'},
-          {first: 'd'},
-          {first: 'eee', last: 'fff'},
-          {first: 'f'},
-          {title: 'ggg', last: 'hhh'},
-          {first: 'h'}
+        array: [
+          {x: 'a', i: 0}, {x: 'b', i: 1}, {x: 'c', i: 2}, {x: 'd', i: 3}, {x: 'e', i: 4}, {x: 'c', i: 5}
         ]
       };
-
-      const source = '{{#filter collection "d" property="first"}}{{this.first}}{{else}}ZZZ{{/filter}}';
-      const fn = hbs.compile(source);
-      assert.equal(fn(ctx), 'd');
+      const template = hbs.compile('{{JSONstringify (filter array "c" property="x")}}', {
+        noEscape: true
+      });
+      assert.deepEqual(JSON.parse(template(ctx)), [{'x': 'c', 'i': 2}, {'x': 'c', 'i': 5}]);
     });
   });
 
