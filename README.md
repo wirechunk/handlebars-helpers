@@ -375,21 +375,27 @@ Return all of the items in the collection before the specified count. Opposite o
 
 ### filter
 
-Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned.
+Returns an array with the given array's elements filtered for elements that equal a specified value
+or, if a hash argument with a "property" key is provided, for elements that have the specified
+property equal to a specified value.
 
 **Params**
 
 * `array` **{Array}**
 * `value` **{any}**
 * `options` **{Object}**
-* `returns` **{String}**
+* `returns` **{Array}**
 
 **Example**
 
 ```handlebars
-<!-- array: ['a', 'b', 'c'] -->
-{{#filter array "foo"}}AAA{{else}}BBB{{/filter}}
-<!-- results in: 'BBB' -->
+<!-- array: ['a', 'b', 'a', 'c'] -->
+{{filter array "a"}}
+<!-- results in: ['a', 'a'] -->
+
+<!-- array: [{ x: 'a' }, { x: 'b' }, { x: 'a' }, { x: 'c' }] -->
+{{filter array "a" property="x"}}
+<!-- results in: [{ x: 'a'}, { x: 'a' }] -->
 ```
 
 ### first
@@ -828,7 +834,7 @@ Block helper that sorts a collection and exposes the sorted collection as contex
 
 ### unique
 
-Block helper that return an array with all duplicate values removed. Best used along with a [each](#each) helper.
+Returns an array with all duplicate values removed.
 
 **Params**
 
