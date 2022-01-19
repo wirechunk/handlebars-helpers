@@ -24,9 +24,9 @@ describe('array', function() {
       assert.equal(fn(context), 'f,g,h');
     });
 
-    it('should return all of the items in an array after the specified count', function() {
-      const fn = hbs.compile('{{after array 5}}');
-      assert.equal(fn(context), 'f,g,h');
+    it('should return all of part of the string after the given index', function() {
+      const fn = hbs.compile('{{after str 2}}');
+      assert.equal(fn({str: 'abcd'}), 'cd');
     });
   });
 

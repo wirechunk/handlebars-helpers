@@ -306,13 +306,14 @@ Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://git
 
 ### after
 
-Returns all of the items in an array after the specified index. Opposite of [before](#before).
+Returns all of the items in an array, or characters in a string, after the specified index.
+Opposite of [before](#before).
 
 **Params**
 
-* `array` **{Array}**: Collection
+* `array` **{Array|String}**: Collection
 * `n` **{Number}**: Starting index (number of items to exclude)
-* `returns` **{Array}**: Array exluding `n` items.
+* `returns` **{Array|String}**: Array or string excluding `n` items.
 
 **Example**
 
@@ -320,6 +321,10 @@ Returns all of the items in an array after the specified index. Opposite of [bef
 <!-- array: ['a', 'b', 'c'] -->
 {{after array 1}}
 <!-- results in: '["c"]' -->
+
+<!-- str: "abcd" -->
+{{after str 2}}
+<!-- results in: 'cd' -->
 ```
 
 ### arrayify
