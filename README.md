@@ -71,7 +71,6 @@ Visit the: [code](lib/array.js) | [unit tests](test/array.js) | [issues](https:/
 
 * **[after](#after)** ([code](lib/array.js) | [tests](test/array.js))
 * **[arrayify](#arrayify)** ([code](lib/array.js) | [tests](test/array.js))
-* **[before](#before)** ([code](lib/array.js) | [tests](test/array.js))
 * **[eachIndex](#eachindex)** ([code](lib/array.js) | [tests](test/array.js))
 * **[filter](#filter)** ([code](lib/array.js) | [tests](test/array.js))
 * **[first](#first)** ([code](lib/array.js) | [tests](test/array.js))
@@ -90,7 +89,6 @@ Visit the: [code](lib/array.js) | [unit tests](test/array.js) | [issues](https:/
 * **[sort](#sort)** ([code](lib/array.js) | [tests](test/array.js))
 * **[sortBy](#sortby)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withAfter](#withafter)** ([code](lib/array.js) | [tests](test/array.js))
-* **[withBefore](#withbefore)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withFirst](#withfirst)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withGroup](#withgroup)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withLast](#withlast)** ([code](lib/array.js) | [tests](test/array.js))
@@ -307,7 +305,6 @@ Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://git
 ### after
 
 Returns all of the items in an array, or characters in a string, after the specified index.
-Opposite of [before](#before).
 
 **Params**
 
@@ -341,24 +338,6 @@ Cast the given `value` to an array.
 ```handlebars
 {{arrayify "foo"}}
 <!-- results in: [ "foo" ] -->
-```
-
-### before
-
-Return all of the items in the collection before the specified count. Opposite of [after](#after).
-
-**Params**
-
-* `array` **{Array}**
-* `n` **{Number}**
-* `returns` **{Array}**: Array excluding items after the given number.
-
-**Example**
-
-```handlebars
-<!-- array: ['a', 'b', 'c'] -->
-{{before array 2}}
-<!-- results in: '["a", "b"]' -->
 ```
 
 ### eachIndex
@@ -710,7 +689,7 @@ Sort an `array`. If an array of objects is passed, you may optionally pass a `ke
 
 ### withAfter
 
-Use the items in the array _after_ the specified index as context inside a block. Opposite of [withBefore](#withBefore).
+Use the items in the array _after_ the specified index as context inside a block.
 
 **Params**
 
@@ -727,27 +706,6 @@ Use the items in the array _after_ the specified index as context inside a block
   {{this}}
 {{/withAfter}}
 <!-- results in: "de" -->
-```
-
-### withBefore
-
-Use the items in the array _before_ the specified index as context inside a block. Opposite of [withAfter](#withAfter).
-
-**Params**
-
-* `array` **{Array}**
-* `idx` **{Number}**
-* `options` **{Object}**
-* `returns` **{Array}**
-
-**Example**
-
-```handlebars
-<!-- array: ['a', 'b', 'c', 'd', 'e'] -->
-{{#withBefore array 3}}
-  {{this}}
-{{/withBefore}}
-<!-- results in: 'ab' -->
 ```
 
 ### withFirst
@@ -949,7 +907,7 @@ Helper that renders the block if **both** of the given values are truthy. If an 
 
 Render a block when a comparison of the first and third
 arguments returns true. The second argument is
-the [arithemetic operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators) to use. You may also
+the [arithmetic operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators) to use. You may also
 optionally specify an inverse block to render when falsy.
 
 **Params**
