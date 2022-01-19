@@ -24,7 +24,7 @@ describe('array', function() {
       assert.equal(fn(context), 'f,g,h');
     });
 
-    it('should return all of part of the string after the given index', function() {
+    it('should return the part of a string after the given index', function() {
       const fn = hbs.compile('{{after str 2}}');
       assert.equal(fn({str: 'abcd'}), 'cd');
     });
@@ -34,21 +34,6 @@ describe('array', function() {
     it('should arrayify a value', function() {
       assert.equal(hbs.compile('{{#each (arrayify .)}}{{.}}{{/each}}')('foo'), 'foo');
       assert.equal(hbs.compile('{{#each (arrayify .)}}{{.}}{{/each}}')(['foo']), 'foo');
-    });
-  });
-
-  describe('before', function() {
-    it('should return an empty string when undefined', function() {
-      assert.equal(hbs.compile('{{before}}')(), '');
-    });
-    it('should return all of the items in an array before the given index', function() {
-      const fn = hbs.compile('{{before array 5}}');
-      assert.equal(fn(context), 'a,b,c');
-    });
-
-    it('should return all of the items in an array before the specified count', function() {
-      const fn = hbs.compile('{{before array 5}}');
-      assert.equal(fn(context), 'a,b,c');
     });
   });
 
@@ -411,13 +396,6 @@ describe('array', function() {
     it('should use all of the items in an array after the specified count', function() {
       const fn = hbs.compile('{{#withAfter array 5}}<{{this}}>{{/withAfter}}');
       assert.equal(fn(context), '<f><g><h>');
-    });
-  });
-
-  describe('withBefore', function() {
-    it('should use all of the items in an array before the specified count', function() {
-      const fn = hbs.compile('{{#withBefore array 5}}<{{this}}>{{/withBefore}}');
-      assert.equal(fn(context), '<a><b><c>');
     });
   });
 
