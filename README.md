@@ -2440,12 +2440,12 @@ snake_case the characters in the given `string`.
 
 ### split
 
-Split `string` by the given `character`.
+Split `string` by the given separator, which can be a string or a regular expression.
 
 **Params**
 
 * `string` **{String}**: The string to split.
-* `returns` **{String}** `character`: Default is an empty string.
+* `returns` **{String|RegExp}** `separator`: Default is an empty string.
 
 **Example**
 

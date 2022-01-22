@@ -123,7 +123,7 @@ describe('collection', function() {
     });
 
     it('should work with arrays passed via subexpression', function() {
-      const fn = hbs.compile('{{length (split "b,c,a")}}');
+      const fn = hbs.compile('{{length (split "b,c,a" ",")}}');
       assert.equal(fn(context), '3');
     });
 
