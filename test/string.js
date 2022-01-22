@@ -3,8 +3,10 @@
 require('mocha');
 const assert = require('assert');
 const hbs = require('handlebars').create();
+const regexHelpers = require('../lib/regex');
 const stringHelpers = require('../lib/string');
 
+hbs.registerHelper(regexHelpers);
 hbs.registerHelper(stringHelpers);
 
 describe('string', function() {
@@ -266,17 +268,21 @@ describe('string', function() {
   });
 
   describe('split', function() {
-    it('should return an empty string if undefined', function() {
+    it('should return an empty string if input is undefined', function() {
       const fn = hbs.compile('{{split}}');
       assert.equal(fn(), '');
     });
-    it('should split the string with the default character', function() {
-      const fn = hbs.compile('{{#each (split "a,b,c")}}<{{.}}>{{/each}}');
+    it('should split the string by an empty string by default', function() {
+      const fn = hbs.compile('{{#each (split "abc")}}<{{.}}>{{/each}}');
       assert.equal(fn(), '<a><b><c>');
     });
     it('should split the string on the given character', function() {
       const fn = hbs.compile('{{#each (split "a|b|c" "|")}}<{{.}}>{{/each}}');
       assert.equal(fn(), '<a><b><c>');
+    });
+    it('should split the string on the regular expression', function() {
+      const fn = hbs.compile('{{#each (split str (toRegex "\\n"))}}<{{.}}>{{/each}}');
+      assert.equal(fn({str: 'a\nb\nc'}), '<a><b><c>');
     });
   });
 
