@@ -3,12 +3,7 @@
 
 > Tons of awesome helpers for Handlebars
 
-- [Usage](#usage)
-- [Helpers](#helpers)
-- [History](#history)
-- [About](#about)
-
-You might also be interested in [template-helpers](https://github.com/jonschlinkert/template-helpers).
+This library is used for templates in [Wirechunk](https://wirechunk.com).
 
 ## Browsers are supported
 
@@ -39,9 +34,7 @@ You need to have Handlebars as a dependency yourself: it is declared as a peer d
 Also, if you use syntax highlighting when rendering Markdown to HTML with the `helper-markdown` module, you
 need to have highlight.js as a dependency yourself; it too is a peer dependency here.
 
-## Helpers
-
-## Categories
+## Helper categories
 
 Currently **150 helpers** in **17 categories**:
 
@@ -67,10 +60,9 @@ Currently **150 helpers** in **17 categories**:
 
 ### Array helpers
 
-Visit the: [code](lib/array.js) | [unit tests](test/array.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+array+helpers)
+Visit the: [code](lib/array.js) | [unit tests](test/array.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+array)
 
 * **[after](#after)** ([code](lib/array.js) | [tests](test/array.js))
-* **[arrayify](#arrayify)** ([code](lib/array.js) | [tests](test/array.js))
 * **[eachIndex](#eachindex)** ([code](lib/array.js) | [tests](test/array.js))
 * **[filter](#filter)** ([code](lib/array.js) | [tests](test/array.js))
 * **[first](#first)** ([code](lib/array.js) | [tests](test/array.js))
@@ -88,30 +80,33 @@ Visit the: [code](lib/array.js) | [unit tests](test/array.js) | [issues](https:/
 * **[some](#some)** ([code](lib/array.js) | [tests](test/array.js))
 * **[sort](#sort)** ([code](lib/array.js) | [tests](test/array.js))
 * **[sortBy](#sortby)** ([code](lib/array.js) | [tests](test/array.js))
+* **[toArray](#toarray)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withAfter](#withafter)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withFirst](#withfirst)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withGroup](#withgroup)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withLast](#withlast)** ([code](lib/array.js) | [tests](test/array.js))
 * **[withSort](#withsort)** ([code](lib/array.js) | [tests](test/array.js))
+* **[union](#union)** ([code](lib/array.js) | [tests](test/array.js))
 * **[unique](#unique)** ([code](lib/array.js) | [tests](test/array.js))
+* **[uniqueBy](#uniqueby)** ([code](lib/array.js) | [tests](test/array.js))
 
 ### Code helpers
 
-Visit the: [code](lib/code.js) | [unit tests](test/code.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+code+helpers)
+Visit the: [code](lib/code.js) | [unit tests](test/code.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+code)
 
 * **[gist](#gist)** ([code](lib/code.js) | [tests](test/code.js))
 * **[jsfiddle](#jsfiddle)** ([code](lib/code.js) | [tests](test/code.js))
 
 ### Collection helpers
 
-Visit the: [code](lib/collection.js) | [unit tests](test/collection.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+collection+helpers)
+Visit the: [code](lib/collection.js) | [unit tests](test/collection.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+collection)
 
 * **[isEmpty](#isempty)** ([code](lib/collection.js) | [tests](test/collection.js))
 * **[iterate](#iterate)** ([code](lib/collection.js) | [tests](test/collection.js))
 
 ### Comparison helpers
 
-Visit the: [code](lib/comparison.js) | [unit tests](test/comparison.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+comparison+helpers)
+Visit the: [code](lib/comparison.js) | [unit tests](test/comparison.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+comparison)
 
 * **[and](#and)** ([code](lib/comparison.js) | [tests](test/comparison.js))
 * **[compare](#compare)** ([code](lib/comparison.js) | [tests](test/comparison.js))
@@ -140,13 +135,13 @@ Visit the: [code](lib/comparison.js) | [unit tests](test/comparison.js) | [issue
 
 ### Date helpers
 
-Visit the: [code](lib/date.js) | [unit tests](test/date.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+date+helpers)
+Visit the: [code](lib/date.js) | [unit tests](test/date.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+date)
 
 * **[year](#year)** ([code](lib/date.js) | [tests](test/date.js))
 
 ### HTML helpers
 
-Visit the: [code](lib/html.js) | [unit tests](test/html.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+html+helpers)
+Visit the: [code](lib/html.js) | [unit tests](test/html.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+html)
 
 * **[attr](#attr)** ([code](lib/html.js) | [tests](test/html.js))
 * **[css](#css)** ([code](lib/html.js) | [tests](test/html.js))
@@ -158,26 +153,26 @@ Visit the: [code](lib/html.js) | [unit tests](test/html.js) | [issues](https://g
 
 ### Internationalization helpers
 
-Visit the: [code](lib/i18n.js) | [unit tests](test/i18n.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+i18n+helpers)
+Visit the: [code](lib/i18n.js) | [unit tests](test/i18n.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+i18n)
 
 * **[i18n](#i18n)** ([code](lib/i18n.js) | [tests](test/i18n.js))
 
 ### Inflection helpers
 
-Visit the: [code](lib/inflection.js) | [unit tests](test/inflection.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+inflection+helpers)
+Visit the: [code](lib/inflection.js) | [unit tests](test/inflection.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+inflection)
 
 * **[inflect](#inflect)** ([code](lib/inflection.js) | [tests](test/inflection.js))
 * **[ordinalize](#ordinalize)** ([code](lib/inflection.js) | [tests](test/inflection.js))
 
 ### Markdown helpers
 
-Visit the: [code](lib/markdown.js) | [unit tests](test/markdown.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+markdown+helpers)
+Visit the: [code](lib/markdown.js) | [unit tests](test/markdown.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+markdown)
 
 * **[markdownToHTML](#markdowntohtml)** ([code](lib/markdown.js) | [tests](test/markdown.js))
 
 ### Math helpers
 
-Visit the: [code](lib/math.js) | [unit tests](test/math.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+math+helpers)
+Visit the: [code](lib/math.js) | [unit tests](test/math.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+math)
 
 * **[abs](#abs)** ([code](lib/math.js) | [no tests])
 * **[add](#add)** ([code](lib/math.js) | [tests](test/math.js))
@@ -194,7 +189,7 @@ Visit the: [code](lib/math.js) | [unit tests](test/math.js) | [issues](https://g
 
 ### Misc helpers
 
-Visit the: [code](lib/misc.js) | [unit tests](test/misc.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+misc+helpers)
+Visit the: [code](lib/misc.js) | [unit tests](test/misc.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+misc)
 
 * **[option](#option)** ([code](lib/misc.js) | [tests](test/misc.js))
 * **[noop](#noop)** ([code](lib/misc.js) | [tests](test/misc.js))
@@ -203,7 +198,7 @@ Visit the: [code](lib/misc.js) | [unit tests](test/misc.js) | [issues](https://g
 
 ### Number helpers
 
-Visit the: [code](lib/number.js) | [unit tests](test/number.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+number+helpers)
+Visit the: [code](lib/number.js) | [unit tests](test/number.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+number)
 
 * **[bytes](#bytes)** ([code](lib/number.js) | [tests](test/number.js))
 * **[addCommas](#addcommas)** ([code](lib/number.js) | [tests](test/number.js))
@@ -217,7 +212,7 @@ Visit the: [code](lib/number.js) | [unit tests](test/number.js) | [issues](https
 
 ### Object helpers
 
-Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+object+helpers)
+Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+object)
 
 * **[extend](#extend)** ([code](lib/object.js) | [tests](test/object.js))
 * **[forIn](#forIn)** ([code](lib/object.js) | [tests](test/object.js))
@@ -234,7 +229,7 @@ Visit the: [code](lib/object.js) | [unit tests](test/object.js) | [issues](https
 
 ### Path helpers
 
-Visit the: [code](lib/path.js) | [unit tests](test/path.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+path+helpers)
+Visit the: [code](lib/path.js) | [unit tests](test/path.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+path)
 
 * **[dirname](#dirname)** ([code](lib/path.js) | [tests](test/path.js))
 * **[relative](#relative)** ([code](lib/path.js) | [tests](test/path.js))
@@ -245,14 +240,14 @@ Visit the: [code](lib/path.js) | [unit tests](test/path.js) | [issues](https://g
 
 ### Regex helpers
 
-Visit the: [code](lib/regex.js) | [unit tests](test/regex.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+regex+helpers)
+Visit the: [code](lib/regex.js) | [unit tests](test/regex.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+regex)
 
 * **[toRegex](#toRegex)** ([code](lib/regex.js) | [no tests])
 * **[test](#test)** ([code](lib/regex.js) | [no tests])
 
 ### String helpers
 
-Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+string+helpers)
+Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+string)
 
 * **[append](#append)** ([code](lib/string.js) | [no tests])
 * **[camelcase](#camelcase)** ([code](lib/string.js) | [tests](test/string.js))
@@ -290,7 +285,7 @@ Visit the: [code](lib/string.js) | [unit tests](test/string.js) | [issues](https
 
 ### URL helpers
 
-Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+url+helpers)
+Visit the: [code](lib/url.js) | [unit tests](test/url.js) | [issues](https://github.com/wirechunk/handlebars-helpers/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+url)
 
 * **[decodeURIComponent](#decodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
 * **[encodeURIComponent](#encodeuricomponent)** ([code](lib/url.js) | [tests](test/url.js))
@@ -322,22 +317,6 @@ Returns all of the items in an array, or characters in a string, after the speci
 <!-- str: "abcd" -->
 {{after str 2}}
 <!-- results in: 'cd' -->
-```
-
-### arrayify
-
-Cast the given `value` to an array.
-
-**Params**
-
-* `value` **{any}**
-* `returns` **{Array}**
-
-**Example**
-
-```handlebars
-{{arrayify "foo"}}
-<!-- results in: [ "foo" ] -->
 ```
 
 ### eachIndex
@@ -687,6 +666,25 @@ Sort an `array`. If an array of objects is passed, you may optionally pass a `ke
 <!-- results in: '[{"a":"aaa"}, {"a":"zzz"}]' -->
 ```
 
+### toArray
+
+Combine the given values into an array.
+
+**Params**
+
+* `values` **{...any}**
+* `returns` **{Array}**
+
+**Example**
+
+```handlebars
+{{toArray "foo"}}
+<!-- results in: [ "foo" ] -->
+
+{{toArray "foo" "bar"}}
+<!-- results in: [ "foo", "bar" ] -->
+```
+
 ### withAfter
 
 Use the items in the array _after_ the specified index as context inside a block.
@@ -795,9 +793,31 @@ Block helper that sorts a collection and exposes the sorted collection as contex
 <!-- results in: 'abc' -->
 ```
 
+### union
+
+Returns an array of all of the unique values from the two given arrays.
+Elements are compared using [SameValueZero](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness),
+which is similar to strict equality except that NaN is considered equal to NaN.
+
+**Params**
+
+* `array1` **{Array}**
+* `array2` **{Array}**
+* `returns` **{Array}**
+
+**Example**
+
+```handlebars
+<!-- array1: ['a', 'a', 'c', 'b'], array2: ['a', 'b', 'e'] -->
+{{#each (unique array)}}{{.}}{{/each}}
+<!-- results in: 'acbe' -->
+```
+
 ### unique
 
 Returns an array with all duplicate values removed.
+Elements are compared using [SameValueZero](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness),
+which is similar to strict equality except that NaN is considered equal to NaN.
 
 **Params**
 
@@ -811,6 +831,24 @@ Returns an array with all duplicate values removed.
 <!-- array: ['a', 'a', 'c', 'b', 'e', 'e'] -->
 {{#each (unique array)}}{{.}}{{/each}}
 <!-- results in: 'acbe' -->
+```
+
+### uniqueBy
+
+Returns an array with all duplicate values removed using the property or comparison function specified.
+
+**Params**
+
+* `array` **{Array}**
+* `prop` **{String|Function}**: The property or comparison function by which to determine uniqueness.
+* `returns` **{Array}**
+
+**Example**
+
+```handlebars
+<!-- array: [{a: 'zz', id: 1}, {a: 'aa', id: 2}, {a: 'zz', id: 3}] -->
+{{uniqueBy array "a"}}
+<!-- results in: [{ a: "zz", id: 1}, { a: "aa", id: 2 }] -->
 ```
 
 ## code
@@ -2674,265 +2712,31 @@ Strip the query string from the given `url`.
 
 ***
 
-## History
-
-## [0.11.0](https://github.com/wirechunk/handlebars-helpers/compare/0.10.0...0.11.0) - 2022-01-12
-
-## [0.10.0](https://github.com/wirechunk/handlebars-helpers/compare/0.9.0...0.10.0) - 2017-11-17
-
-**changes**
-
-* adds `unique` to array helpers
-* updates `css` helper to ensure that path.join() is not called on an absolute URL.
-
-## [v0.9.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.8.4...v0.9.0) - 2017-07-03
-
-**changes**
-
-* all unit tests now use assert instead of should
-* remove `fileSize` helper in favor of new `bytes` helper, which does the same thing, but returns `B` instead of `byte` or `bytes`.
-* JSONParse helper is no longer a block helper. It now returns an object, which can be used as a subexpression to achieve the same behavior as before.
-* adds better error handling for path helpers, since node.js errors are terrible. We have a better way to handle errors that will be implemented in a near future release.
-* adds inline helper support to `isEmpty`, so it can now be used as an inline or block helper
-* adds `raw` helper
-* adds regex helpers
-* adds inline helper support to most of the comparison helpers, so they can now be used as inline or block helpers
-* adds `pluck` helper to array helpers
-* adds `prepend` and `append` helpers to string helpers
-* adds `isTruthy` and `isFalsey` comparison helpers
-* adds `escape` and `url_encode` and `url_decode` URL helpers
-* adds `attr` helper to html helpers
-* adds `year` helper to date helpers
-* adds `typeOf` and `frame` helpers to misc helpers
-* adds `abs`, `minus`, `modulo`, `plus`, `times` to math helpers
-* moves `ellipsis` helper from `html` helpers to string helpers
-* moves `truncate` helper from `html` helpers to string helpers
-* moves `reverse` helper from `string` helpers to array helpers
-* differentiate `eq` and `is` helpers so that `eq` is strict equality and `is` is not
-* removes `mm` helper, use `match` instead
-
-## [v0.8.4](https://github.com/wirechunk/handlebars-helpers/compare/v0.8.3...v0.8.4) - 2017-07-03
-
-**changes**
-
-* removes strlen helper in favor of fixing the length helper
-
-## [v0.8.3](https://github.com/wirechunk/handlebars-helpers/compare/v0.8.2...v0.8.3) - 2017-07-03
-
-**changes**
-
-* adds strlen helper
-* adds itemAt helper
-* clean up code comments for array helpers
-
-## [v0.8.2](https://github.com/wirechunk/handlebars-helpers/compare/v0.8.1...v0.8.2) - 2017-03-30
-
-**changes**
-
-* documentation updates
-* fixes md helper to use sync by default
-
-## [v0.8.1](https://github.com/wirechunk/handlebars-helpers/compare/v0.8.0...v0.8.1) - 2017-03-30
-
-**changes**
-
-* fixes sorting in withSort helper. see https://github.com/wirechunk/handlebars-helpers/pull/245
-* adds toPath helper
-* handle null inputs in number helpers
-* adds stripProtocol helper
-
-## [v0.8.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.7.6...v0.8.0) - 2017-01-25
-
-**changes**
-
-* handle string arguments in list helpers
-* adds JSONParse helper as an alias for parseJSON
-
-## [v0.7.6](https://github.com/wirechunk/handlebars-helpers/compare/v0.7.0...v0.7.6) - 2017-01-08
-
-**changes**
-
-* fixes markdown helpers. see https://github.com/wirechunk/handlebars-helpers/pull/226
-* documentation improvements and other minor fixes
-
-## [v0.7.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.6.0...v0.7.0) - 2016-07-16
-
-**changes**
-
-* The [or](#or) helper can now take a variable number of arguments
-
-## [v0.6.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.3.3...v0.6.0) - 2016-05-13
-
-**changes**
-
-* the main export is now a function that takes a name or array of names of helper types to load. Example `helpers(['string', 'array'])` will load only the `string` and `array` helpers
-* helper types can alternatively be accessed as methods. example - `helpers.path()` will return all of the path helpers.
-* handlebars may be provided by the user. if not provided it will fall back to the `handlebars-helpers`  handlebars
-* helpers are now as generic as possible, with little to no code related to assemble, grunt, etc.
-* helpers are lazy-loaded using getters for improved performance
-* Once tests are added for the `md` and `markdown` helpers, we'll have 100% unit test coverage on helpers
-
-## [v0.3.3](https://github.com/wirechunk/handlebars-helpers/compare/v0.3.2...v0.3.3) - 2013-09-03
-
-**changes**
-
-* Adds fileSize helper.
-* Adds startsWith helper.
-
-## [v0.3.2](https://github.com/wirechunk/handlebars-helpers/compare/v0.3.0...v0.3.2) - 2013-08-20
-
-**changes**
-
-* Adds glob helper.
-
-## [v0.3.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.2.4...v0.3.0) - 2013-07-30
-
-**changes**
-
-* The project has been refactored, cleaned up, and full documentation has bee put up at http://assemble.io
-
-## [v0.2.4](https://github.com/wirechunk/handlebars-helpers/compare/v0.2.3...v0.2.4) - 2013-05-11
-
-**changes**
-
-* Adding object globbing utility functions to be used in helpers later.
-
-## [v0.2.3](https://github.com/wirechunk/handlebars-helpers/compare/v0.2.0...v0.2.3) - 2013-05-11
-
-**changes**
-
-* File globbing added to some helpers. Including md and some file helpers.
-
-## [v0.2.0](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.32...v0.2.0) - 2013-05-07
-
-**changes**
-
-* A bunch of new tests for markdown and special helpers.
-* Refactored most of the rest of the helpers to separate functions from Handlebars registration.
-
-## [v0.1.32](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.31...v0.1.32) - 2013-05-02
-
-**changes**
-
-* Updates utils and a number of helpers, including value, property, and stringify.
-
-## [v0.1.31](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.30...v0.1.31) - 2013-04-21
-
-**changes**
-
-* Fixes relative helper
-
-## [v0.1.30](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.25...v0.1.30) - 2013-04-20
-
-**changes**
-
-* Refactoring helpers-collection module to separate the functions from the Handlebars helper registration process.
-
-## [v0.1.25](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.21...v0.1.25) - 2013-04-16
-
-**changes**
-
-* Adding defineSection and renderSection helpers to try to get sections populated in a layout from the page.
-
-## [v0.1.21](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.20...v0.1.21) - 2013-04-07
-
-**changes**
-
-* Add markdown helpers back, add more tests.
-
-## [v0.1.20](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.11...v0.1.20) - 2013-04-06
-
-**changes**
-
-* Generalized helpers structure, externalized utilities.
-
-## [v0.1.11](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.10...v0.1.11) - 2013-04-05
-
-**changes**
-
-* New authors and gist helpers, general cleanup and new tests.
-
-## [v0.1.10](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.8...v0.1.10) - 2013-04-04
-
-**changes**
-
-* Externalized utility javascript from helpers.js
-
-## [v0.1.8](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.7...v0.1.8) - 2013-03-28
-
-**changes**
-
-* Gruntfile updated with mocha tests for 71 helpers, bug fixes.
-
-## [v0.1.7](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.3...v0.1.7) - 2013-03-18
-
-**changes**
-
-* New path helper 'relative', for resolving relative path from one absolute path to another.
-
-## [v0.1.3](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.2...v0.1.3) - 2013-03-16
-
-**changes**
-
-* New helpers, 'formatPhoneNumber' and 'eachProperty'
-
-## [v0.1.2](https://github.com/wirechunk/handlebars-helpers/compare/v0.1.0...v0.1.2) - 2013-03-15
-
-**changes**
-
-* Update README.md with documentation, examples.
-
-## [v0.1.0] - 2013-03-06
-
-**changes**
-
-* First commit.
-
 ## About
 
 ### Related projects
 
-* [assemble](https://www.npmjs.com/package/assemble): Get the rocks out of your socks! Assemble makes you fast at creating web projects… [more](https://github.com/assemble/assemble) | [homepage](https://github.com/assemble/assemble "Get the rocks out of your socks! Assemble makes you fast at creating web projects. Assemble is used by thousands of projects for rapid prototyping, creating themes, scaffolds, boilerplates, e-books, UI components, API documentation, blogs, building websit")
 * [template-helpers](https://www.npmjs.com/package/template-helpers): Generic JavaScript helpers that can be used with any template engine. Handlebars, Lo-Dash, Underscore, or… [more](https://github.com/jonschlinkert/template-helpers) | [homepage](https://github.com/jonschlinkert/template-helpers "Generic JavaScript helpers that can be used with any template engine. Handlebars, Lo-Dash, Underscore, or any engine that supports helper functions.")
-* [utils](https://www.npmjs.com/package/utils): Fast, generic JavaScript/node.js utility functions. | [homepage](https://github.com/jonschlinkert/utils "Fast, generic JavaScript/node.js utility functions.")
 
 ### Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
-
-### Contributors
-
-### Release history
-
-### Building docs
-
-_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_
-
-To generate the readme, run the following command:
-
-```sh
-$ npm install -g verbose/verb#dev verb-generate-readme && verb
-```
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/wirechunk/handlebars-helpers/issues).
 
 ### Running tests
 
-Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
+Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install this project's dependencies and run tests with the following command:
 
 ```sh
-$ npm install && npm test
+npm install && npm test
 ```
 
 ### Author
 
-**Brian Woodward**
+**[Brian Woodward](https://github.com/doowb)**
 
-* [github/doowb](https://github.com/doowb)
-* [twitter/doowb](https://twitter.com/doowb)
+**[Dmitriy Cherchenko](https://github.com/dchenk)**
 
-**Jon Schlinkert**
-
-* [github/jonschlinkert](https://github.com/jonschlinkert)
-* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
+**[Jon Schlinkert](https://github.com/jonschlinkert)**
 
 ### License
 
