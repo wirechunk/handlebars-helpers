@@ -11,7 +11,10 @@ hbs.registerHelper(arrayHelpers);
 hbs.registerHelper(objectHelpers);
 hbs.registerHelper(stringHelpers);
 
-const context = {array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], duplicate: [ 'a', 'b', 'b', 'c', 'd', 'b', 'f', 'a', 'g']};
+const context = {
+  array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
+  duplicate: ['a', 'b', 'b', 'c', 'd', 'b', 'f', 'a', 'g']
+};
 
 describe('array', function() {
   describe('after', function() {
@@ -30,17 +33,20 @@ describe('array', function() {
     });
   });
 
-  describe('arrayify', function() {
-    it('should arrayify a value', function() {
-      assert.equal(hbs.compile('{{#each (arrayify .)}}{{.}}{{/each}}')('foo'), 'foo');
-      assert.equal(hbs.compile('{{#each (arrayify .)}}{{.}}{{/each}}')(['foo']), 'foo');
+  describe('toArray', function() {
+    it('should convert a single value to an array with that value', function() {
+      assert.equal(hbs.compile('{{{JSONstringify (toArray .)}}}')('foo'), '["foo"]');
+    });
+
+    it('should convert multiple values', function() {
+      assert.equal(hbs.compile('{{JSONstringify (toArray 1 2 3)}}')(), '[1,2,3]');
     });
   });
 
   describe('each', function() {
     it('should use the key and value of each property in an object inside a block', function() {
       const fn = hbs.compile('{{#each obj}}{{@key}}: {{this}} {{/each}}');
-      assert.equal(fn({obj: {fry: 3, bender: 120 }}), 'fry: 3 bender: 120 ');
+      assert.equal(fn({obj: {fry: 3, bender: 120}}), 'fry: 3 bender: 120 ');
     });
   });
 
@@ -163,8 +169,7 @@ describe('array', function() {
       assert.equal(hbs.compile('{{isArray "foo"}}')(), 'false');
       assert.equal(hbs.compile('{{isArray \'["foo"]\'}}')(), 'false');
       assert.equal(hbs.compile('{{isArray foo}}')({foo: ['foo']}), 'true');
-      assert.equal(hbs.compile('{{isArray (arrayify "foo")}}')(), 'true');
-      assert.equal(hbs.compile('{{isArray (arrayify ["foo"])}}')(), 'true');
+      assert.equal(hbs.compile('{{isArray (toArray "foo")}}')(), 'true');
     });
   });
 
@@ -359,14 +364,14 @@ describe('array', function() {
       assert.equal(hbs.compile('{{sortBy}}')(), '');
     });
 
-    it('should sort the items in an array', function() {
+    it('should sort the items in an array when no props are provided', function() {
       const fn = hbs.compile('{{sortBy array}}');
       assert.equal(fn({array: ['b', 'c', 'a']}), 'a,b,c');
     });
 
-    it('should return an empty string when the array is invalid:', function() {
+    it('should return an empty array when the array is invalid', function() {
       const fn = hbs.compile('{{sortBy foo}}');
-      assert.equal(fn(context), '');
+      assert.equal(fn({}), '');
     });
 
     it('should take a compare function', function() {
@@ -384,11 +389,18 @@ describe('array', function() {
       assert.equal(fn(locals), 'c,a,b');
     });
 
-    it('should sort based on object key:', function() {
+    it('should sort based on object key', function() {
       const ctx = {arr: [{a: 'zzz'}, {a: 'aaa'}]};
-      hbs.registerHelper(objectHelpers);
       const fn = hbs.compile('{{{JSONstringify (sortBy arr "a") 0}}}');
       assert.equal(fn(ctx), '[{"a":"aaa"},{"a":"zzz"}]');
+    });
+
+    it('should sort on multiple object keys', function() {
+      const ctx = {
+        arr: [{a: 'zzz', b: 'zzz', c: 1}, {a: 'zzz', b: 'aaa', c: 2}, {a: 'zzz', b: 'bbb', c: 3}]
+      };
+      const fn = hbs.compile('{{{JSONstringify (sortBy arr "a" "b")}}}');
+      assert.equal(fn(ctx), '[{"a":"zzz","b":"aaa","c":2},{"a":"zzz","b":"bbb","c":3},{"a":"zzz","b":"zzz","c":1}]');
     });
   });
 
@@ -417,7 +429,7 @@ describe('array', function() {
     it('should iterate over an array grouping elements by a given number', function() {
       const fn = hbs.compile('{{#withGroup collection 4}}{{#each this}}{{name}}{{/each}}<br>{{/withGroup}}');
       const res = fn({
-        collection: [ {name: 'a'}, {name: 'b'}, {name: 'c'}, {name: 'd'}, {name: 'e'}, {name: 'f'}, {name: 'g'}, {name: 'h'}]
+        collection: [{name: 'a'}, {name: 'b'}, {name: 'c'}, {name: 'd'}, {name: 'e'}, {name: 'f'}, {name: 'g'}, {name: 'h'}]
       });
       assert.equal(res, 'abcd<br>efgh<br>');
     });
@@ -457,9 +469,9 @@ describe('array', function() {
       const fn = hbs.compile('{{#withSort collection "deliveries"}}{{name}}: {{deliveries}} <br>{{/withSort}}');
       const res = fn({
         collection: [
-          {name: 'f', deliveries: 8021 },
-          {name: 'b', deliveries: 239 },
-          {name: 'd', deliveries: -12 }
+          {name: 'f', deliveries: 8021},
+          {name: 'b', deliveries: 239},
+          {name: 'd', deliveries: -12}
         ]
       });
       assert.equal(res, 'd: -12 <br>b: 239 <br>f: 8021 <br>');
@@ -469,24 +481,87 @@ describe('array', function() {
       const fn = hbs.compile('{{#withSort collection "deliveries" reverse="true"}}{{name}}: {{deliveries}} <br>{{/withSort}}');
       const res = fn({
         collection: [
-          {name: 'f', deliveries: 8021 },
-          {name: 'b', deliveries: 239 },
-          {name: 'd', deliveries: -12 }
+          {name: 'f', deliveries: 8021},
+          {name: 'b', deliveries: 239},
+          {name: 'd', deliveries: -12}
         ]
       });
       assert.equal(res, 'f: 8021 <br>b: 239 <br>d: -12 <br>');
     });
   });
 
-  describe('unique', function() {
-    it('should return empty string when the array is null', function() {
-      const fn = hbs.compile('{{#unique}}{{this}}{{/unique}}');
-      assert.equal(fn(context), '');
+  describe('union', function() {
+    it('should return the unique elements from both arrays', function() {
+      const fn = hbs.compile('{{union array1 array2}}');
+      const context = {
+        array1: ['a', 'b', 'b', 'c', 'd', 'b', 'f', 'a', 'g'],
+        array2: ['b', 'c', 'd', 'b', 'f', 'h', 'k', 'g']
+      };
+      assert.equal(fn(context).toString(), 'a,b,c,d,f,g,h,k');
     });
-    it('should return array with unique items', function() {
-      const fn = hbs.compile('{{#unique duplicate}}{{this}}{{/unique}}');
-      assert.equal(fn(context).toString(), 'a,b,c,d,f,g');
+
+    it('should treat NaN values as equal', function() {
+      const fn = hbs.compile('{{union array1 array2}}');
+      const context = {
+        array1: [1, NaN, 1, 2, 3, NaN],
+        array2: [NaN, 4, NaN]
+      };
+      assert.equal(fn(context).toString(), '1,NaN,2,3,4');
     });
   });
 
+  describe('unique', function() {
+    it('should return an empty array when not given an array', function() {
+      const fn = hbs.compile('{{JSONstringify (unique "hello")}}');
+      assert.equal(fn({}), '[]');
+    });
+
+    it('should return array with unique items', function() {
+      const fn = hbs.compile('{{unique array}}');
+      const context = {
+        array: ['a', 'b', 'b', 'c', 'd', 'b', 'f', 'a', 'g']
+      };
+      assert.equal(fn(context).toString(), 'a,b,c,d,f,g');
+    });
+
+    it('should treat NaN values as equal', function() {
+      const fn = hbs.compile('{{unique array}}');
+      const context = {
+        array: [1, NaN, 1, 2, 3, NaN]
+      };
+      assert.equal(fn(context).toString(), '1,NaN,2,3');
+    });
+  });
+
+  describe('uniqueBy', function() {
+    it('should return an empty array when not given an array', function() {
+      const fn = hbs.compile('{{JSONstringify (uniqueBy "hello" "a")}}');
+      assert.equal(fn({}), '[]');
+    });
+
+    it('should return array with unique items', function() {
+      const fn = hbs.compile('{{{JSONstringify (uniqueBy array "name")}}}');
+      const context = {
+        array: [
+          {name: 'a', id: 1}, {name: 'a', id: 2}, {name: 'b', id: 3}, {name: 'c', id: 4}, {name: 'b', id: 5}]
+      };
+      assert.equal(fn(context).toString(), '[{"name":"a","id":1},{"name":"b","id":3},{"name":"c","id":4}]');
+    });
+
+    it('works with the example in docs', function() {
+      const fn = hbs.compile('{{#each (uniqueBy array "a")}}{{a}}/{{id}},{{/each}}');
+      const result = fn({
+        array: [{a: 'zz', id: 1}, {a: 'aa', id: 2}, {a: 'zz', id: 3}]
+      });
+      assert.equal(result, 'zz/1,aa/2,');
+    });
+
+    it('should treat NaN values as equal', function() {
+      const fn = hbs.compile('{{{JSONstringify (uniqueBy array "name")}}}');
+      const context = {
+        array: [{name: 1}, {name: NaN}, {name: 1}, {name: 2}, {name: 3}, {name: NaN}]
+      };
+      assert.equal(fn(context).toString(), '[{"name":1},{"name":null},{"name":2},{"name":3}]');
+    });
+  });
 });
