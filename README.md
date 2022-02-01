@@ -14,13 +14,19 @@ See how to [use handlebars-helpers in the browser](https://github.com/doowb/hand
 
 ## Usage
 
+Install this library:
+
+```
+npm install useful-handlebars-helpers
+```
+
 The main file (`index.js`) exports groups of helpers. See it for a list of all the groups.
 
 Import the groups you want and register each as a helper:
 
 ```js
 import handlebars from 'handlebars';
-import { array, collection, math, number } from 'handlebars-helpers';
+import { array, collection, math, number } from 'useful-handlebars-helpers';
 
 [array, collection, math, number].forEach(
   (helper) => {
